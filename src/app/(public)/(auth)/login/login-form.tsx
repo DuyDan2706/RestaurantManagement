@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import { Form, FormField, FormItem, FormMessage } from '@/components/ui/form'
 import { LoginBody, LoginBodyType } from '@/schemaValidations/auth.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import GoogleIcon from '@mui/icons-material/Google';
 
 export default function LoginForm() {
   const form = useForm<LoginBodyType>({
@@ -20,8 +21,7 @@ export default function LoginForm() {
   return (
     <Card className='mx-auto max-w-sm'>
       <CardHeader>
-        <CardTitle className='text-2xl'>Đăng nhập</CardTitle>
-        <CardDescription>Nhập email và mật khẩu của bạn để đăng nhập vào hệ thống</CardDescription>
+        <CardTitle className='text-2xl text-center'>Đăng nhập</CardTitle>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -34,7 +34,7 @@ export default function LoginForm() {
                   <FormItem>
                     <div className='grid gap-2'>
                       <Label htmlFor='email'>Email</Label>
-                      <Input id='email' type='email' placeholder='m@example.com' required {...field} />
+                      <Input id='email' type='email'  required {...field} />
                       <FormMessage />
                     </div>
                   </FormItem>
@@ -55,11 +55,11 @@ export default function LoginForm() {
                   </FormItem>
                 )}
               />
-              <Button type='submit' className='w-full'>
+              <Button type='submit' className='w-full text-center '>
                 Đăng nhập
               </Button>
               <Button variant='outline' className='w-full' type='button'>
-                Đăng nhập bằng Google
+             <GoogleIcon className='mx-2 text-red-500'/>   Đăng nhập bằng Google
               </Button>
             </div>
           </form>
